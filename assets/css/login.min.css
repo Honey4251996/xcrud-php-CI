@@ -1,0 +1,2 @@
+
+body{background:#fff}#signin-panel{padding:20px 20px;margin-top:10vh;border-radius:7px;box-shadow:none;border:0}.logo{position:relative;width:60%!important;margin:0;margin-left:20%;margin-top:15px;margin-bottom:15px}.message{font-size:14px;text-align:center;margin:15px 0;margin-bottom:0}#alert{margin:10px 30px;margin-bottom:0;height:40px;padding:10px}.form-group{margin:20px 30px}.form-control{height:40px}@media(max-width:650px){#signin-panel{padding:20px 10px}#email,#verify-email{width:100%!important}}

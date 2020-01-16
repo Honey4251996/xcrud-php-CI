@@ -1,0 +1,58 @@
+/* 
+    Created on : Jun 20, 2017, 1:52:10 PM
+    Author     : Ahmed Saif
+*/
+.inline-block {
+  display: inline-block;
+}
+.bs-form {
+  position: relative;
+}
+.bs-message {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  z-index: 100;
+  font-size: 16px;
+  color: #fff;
+}
+.bs-message.success {
+  background: #25ad67;
+  border: #117e46 solid 1px;
+}
+.bs-message.fail {
+  background: #d9524e;
+  border: #d81c18 solid 1px;
+}
+.bs-validation-message {
+  padding: 2px 10px;
+}
+.bs-validation-message.success {
+  color: #25ad67;
+  margin-bottom: -7px;
+}
+.bs-validation-message.fail {
+  color: #d9524e;
+  margin-bottom: -7px;
+}
+.bs-form-title {
+  border-bottom: 1px solid #ddd;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.bs-file-container .bs-preview-image {
+  max-height: 150px;
+  max-width: 200px;
+  display: block;
+  margin: auto;
+}
+.bs-error:not(.bs-container),
+.bs-error:focus:not(.bs-container),
+.bs-error.bs-file-container img,
+.bs-error:focus.bs-file-container img {
+  border-color: rgba(236, 39, 39, 0.8);
+  outline: 0;
+  -webkit-box-shadow: 0 0 6px rgba(236, 39, 39, 0.8);
+  box-shadow: 0 0 6px rgba(236, 39, 39, 0.8);
+}
