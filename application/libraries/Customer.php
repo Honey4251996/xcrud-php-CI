@@ -19,8 +19,8 @@ class customer extends root {
 	protected $list_title = "Customers";
 	protected $buttons_position = array("up","left"); // both,up,down // left,right
 	protected $selectable = false;
-	protected $fields = "name,mobile_num,tel_num,building,road,block,area,remark";
-	protected $columns = "name,mobile_num,tel_num,building,road,block,area,remark";
+	protected $fields = "name,address,mobile_num,tel_num,building,road,block,area,remark";
+	protected $columns = "name,address,mobile_num,tel_num,building,road,block,area,remark";
 	protected $labels = array("name"=>"Customer Name","tel_num"=>"Telephone","mobile_num"=>"Mobile");
 	
 	protected $left_fields="mobile_num,building,block";
@@ -59,7 +59,8 @@ class customer extends root {
 		$table->unset_title();
 		$table->hide_button('save_edit');
 		$table->create_field('customer','text');
-		$table->set_attr('name',array("data-name"=>"name"));
+        $table->set_attr('name',array("data-name"=>"name"));
+		$table->set_attr('address',array("data-name"=>"address"));
 		$table->set_attr('mobile_num',array("data-name"=>"mobile_num"));
 		$table->set_attr('tel_num',array("data-name"=>"tel_num"));
 		$table->set_attr('building',array("data-name"=>"building"));
