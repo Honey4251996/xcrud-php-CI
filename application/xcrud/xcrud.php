@@ -677,6 +677,7 @@ class Xcrud
     public function fields($fields = '', $reverse = false, $tabname = false, $mode = false)
     {
         $fdata = $this->_parse_field_names($fields, 'fields');
+
         switch ($mode)
         {
             case 'create':
@@ -758,6 +759,7 @@ class Xcrud
     public function columns($columns = '', $reverse = false)
     {
         $fdata = $this->_parse_field_names($columns, 'columns');
+
         foreach ($fdata as $fitem)
         {
             $this->fields_list[$fitem['table'] . '.' . $fitem['field']] = $fitem;

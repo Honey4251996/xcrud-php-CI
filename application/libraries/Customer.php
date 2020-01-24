@@ -66,6 +66,7 @@ class customer extends root {
 		$table->set_attr('building',array("data-name"=>"building"));
 		$table->set_attr('address',array("data-name"=>"address"));
 		$table->set_attr('remark',array("data-name"=>"remark"));
+
 		$table->field_callback('customer','select_customer',__FILE__);
 		$table->after_insert('after_insert2',$this->this_file);
 		//$table->before_edit('before_edit',$this->this_file);

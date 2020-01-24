@@ -18,6 +18,12 @@ class report {
 			$table->where($field,$customer);
 		}
 	}
+
+//    protected function address_filter(&$table,$address=0,$field="address"){
+//        if($address != 0){
+//            $table->where($field,$address);
+//        }
+//    }
 	
 	protected function service_filter(&$table,$service=0,$field="service_id"){
 		if($service != 0){
@@ -61,14 +67,15 @@ class report {
 		}
 	}
 
-
-	public function order_report($serial_st=0,$serial_end=0,$start_d=0,$end_d=0,$customer=0,$status=0){
+	public function order_report($serial_st=0,$serial_end=0,$start_d=0,$end_d=0,$customer=0, $address=0, $status=0){
 		Xcrud_config::$manual_load = true;
 		$table = xcrud::get_instance();
 		$table->table("orders");
+        $table->join("customer","customers","customer_id");
 		//$table->query("Select * From `orders`");
 		$this->status_filter($table, $status);
 		$this->customer_filter($table, $customer);
+//        $this->address_filter($table, $address);
 		$this->serial_filter($table, $serial_st, $serial_end);
 		$this->date_filter($table, $start_d, $end_d);
 		
@@ -81,7 +88,8 @@ class report {
 		$table->unset_limitlist();
 		$table->unset_print();
 		$table->subselect("Order No","CONCAT_WS('',LPAD({order_id},8,'0'))");
-		$table->relation("customer","customers","customer_id",array("name","mobile_num"),"","",""," - ");
+        $table->relation("customer","customers","customer_id","address", "", "", "", " - Building: - Road: - Block:");
+        $table->relation("customer","customers","customer_id",array("name","mobile_num"),"","",""," - ");
 		$table->relation("status","order_status","status_id","title");
 		$table->relation("created_by","users","id","name");
 		$table->subselect("Amount","SELECT SUM(`price`) FROM `quotation_items` WHERE `quotation_id` = {quotation_id}");
@@ -91,7 +99,7 @@ class report {
 		root::price_type($table, "total");
 		$table->sum('total');
 		//$table->subselect("Car Info","CONCAT_WS('',{reg_no},' - ',if({car_type} != 0,(SELECT `title` FROM `car_type` WHERE `type_id` = {car_type}),{other_type}))");
-		$table->columns("Order No,customer,status,total,created_at,created_by");
+		$table->columns("Order No,customer,customers.address, status,total,created_at,created_by");
 		//$table->label(array("reg_no"=>"Reg. No.","customer_id"=>"Customer","quotation_id"=>"Serial No"));
 		return $table;
 	}

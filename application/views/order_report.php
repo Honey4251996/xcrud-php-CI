@@ -8,12 +8,13 @@
 	//require_once PRODUCT_PATH.'/core/classes/report.php';
 	require_once 'widgets/filter_widgets.php';
 	
-	global $serial_st,$serial_end,$start_d,$end_d,$customer_id;
+	global $serial_st,$serial_end,$start_d,$end_d,$customer_id, $address;
 	$serial_st = '';
 	$serial_end = '';
 	$start_d = 0;
 	$end_d = 0;
 	$customer_id = 0;
+	$address = 0;
 	$query = array("report"=>"order");
 	
 	filter_widgets::prepare_inputs();
@@ -58,7 +59,7 @@
 				</div>
 				<div class="row rel"><a href="printing/print_report?<?php echo http_build_query($query); ?>" class="btn btn-primary top-button new-window full-screen"><i class="fa fa-print"></i> Print</a></div>
 				<div class="row">
-					<?php echo $report->order_report($serial_st, $serial_end, $start_d, $end_d, $customer_id)->render(); ?>
+					<?php echo $report->order_report($serial_st, $serial_end, $start_d, $end_d, $customer_id, $address)->render(); ?>
 				</div>
 				
 			</div>

@@ -323,4 +323,13 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+
+if(!function_exists('dd')){
+    function dd($var){
+        echo '<pre>';
+        print_r($var);
+        echo '</pre>';
+        exit;
+    }
+}
 require_once BASEPATH.'core/CodeIgniter.php';
